@@ -1,0 +1,20 @@
+{
+  "/tft/summoner/*": {
+    "target": "https://euw1.api.riotgames.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/tft/league/*": {
+    "target": "https://euw1.api.riotgames.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/tft/match/*": {
+    "target": "https://europe.api.riotgames.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

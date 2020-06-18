@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RiotApiService} from '../service/riot-api.service';
 import {Summoner} from '../dto/summoner';
 import {TftInformations} from '../dto/tft-informations';
+import {MatchInformation} from '../dto/match-information';
 
 @Component({
   selector: 'app-bureau',
@@ -15,8 +16,9 @@ export class BureauComponent implements OnInit {
 
   tftInformations: TftInformations;
 
-  matchsInformation: any;
-  matchhistory: any;
+  matchhistory: string[];
+
+  matchInformation: MatchInformation;
 
   constructor(private riotApiService: RiotApiService) {
   }
@@ -37,8 +39,14 @@ export class BureauComponent implements OnInit {
   }
 
   getMatchesInformations() {
-    this.riotApiService.getMathInformations(this.summonerInformations.puuid).subscribe((rep: any) => {
+    this.riotApiService.getMatchInformations(this.summonerInformations.puuid).subscribe((rep: string[]) => {
       this.matchhistory = rep;
+    });
+  }
+
+  getMatchInformationById() {
+    this.riotApiService.getMatchInformationById(this.matchhistory[0]).subscribe((rep: MatchInformation) => {
+      this.matchInformation = rep;
     });
   }
 }

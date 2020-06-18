@@ -1,15 +1,9 @@
-<mat-form-field>
-  <mat-label>Summoner name</mat-label>
-  <input matInput placeholder="Summoner Name" [(ngModel)]="summonerName">
-</mat-form-field>
-<button mat-button (click)="getSummonerInfo()">Get summoner information</button>
-<button mat-button (click)="getTftInformations()">Get tft information</button>
-<button mat-button (click)="getMatchesInformations()">Get match information</button>
-
-{{summonerInformations | json}}
-
-{{tftInformations | json}}
-
-{{matchhistory | json}}
-
-bonsoir
+<mat-sidenav-container>
+<!--  <mat-sidenav mode="side" class="side-nav" opened>Navigation ?</mat-sidenav>-->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">Tft Stats</mat-toolbar>
+    <div class="main">
+      <app-main-content></app-main-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
