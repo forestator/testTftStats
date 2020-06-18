@@ -1,0 +1,11 @@
+<div>
+  <h3>Top champs</h3>
+  <span *ngFor="let unit of top3Champions">{{unit.unit.character_id | characterIdToName}}{{unit.iteration | pourcentage: numberOfChampionsPlayed}}</span>
+</div>
+<div>
+  <h3>Top classes</h3>
+</div>
+<div>
+  <h3>Top traits</h3>
+</div>
+ng

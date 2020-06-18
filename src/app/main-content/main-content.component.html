@@ -1,0 +1,44 @@
+<div class="summoner-form">
+  <mat-form-field class="example-full-width">
+    <mat-label for="summmonerName">Summoner Name ?</mat-label>
+    <input matInput id="summmonerName" placeholder="Ex. Forestator" [(ngModel)]="summonerName" (keydown.enter)="searchSummoner()">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="searchSummoner()">Recherche</button>
+</div>
+
+<div>
+  <app-top-champion [topChampions]="topUnits" *ngIf="topUnits && topUnits.length > 0"></app-top-champion>
+</div>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="gameDateTime">
+    <mat-header-cell *matHeaderCellDef>gameDateTime</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.info.game_datetime | unixToDate}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="top1Comp">
+    <mat-header-cell *matHeaderCellDef>top 1 comp</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <app-top-comp [participants]="element.info.participants" [topPlacement]="1"></app-top-comp>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="top2Comp">
+    <mat-header-cell *matHeaderCellDef>top 2 comp</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <app-top-comp [participants]="element.info.participants" [topPlacement]="2"></app-top-comp>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="top3Comp">
+    <mat-header-cell *matHeaderCellDef>top 3 comp</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <app-top-comp [participants]="element.info.participants" [topPlacement]="3"></app-top-comp>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

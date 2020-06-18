@@ -1,0 +1,13 @@
+.summoner-form {
+  mat-form-field {
+    margin-right: 0.5rem;
+  }
+}
+.mat-column-top1Comp,
+.mat-column-top2Comp,
+.mat-column-top3Comp {
+  flex: 1 1 auto;
+}
+.mat-column-gameDateTime {
+  flex: 0 0 15%;
+}
